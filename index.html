@@ -1,0 +1,1251 @@
+<!DOCTYPE html>\n<html lang="zh-CN">\n<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="ISEE/SSAT Lower-Level 3000核心词汇测试｜AI智能诊断+错题本+App下载加速" />
+    <title>ISEE/SSAT 3000词 · 智能测试</title>
+    <!-- Open Graph Tags for Facebook -->
+    <meta property="og:title" content="ISEE/SSAT 3000词 · 智能测试｜AI诊断+App下载" />
+    <meta property="og:description" content="20秒完成词汇摸底，生成招生官看懂的诊断报告｜支持中文/English｜Z Fold 4/iPhone/Android 全适配" />
+    <meta property="og:url" content="https://yuandao67890-art.github.io/isee-ssat-test/" />
+    <meta property="og:image" content="https://yuandao67890-art.github.io/isee-ssat-test/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg: #f9fafb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            padding: 20px;
+            min-height: 100vh;
+            -webkit-text-size-adjust: 100%;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 24px 0 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .lang-btn {
+            padding: 8px 16px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .test-controls {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        button:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover:not(:disabled) {
+            background: rgba(37, 99, 235, 0.08);
+        }
+        .word-display {
+            text-align: center;
+            padding: 32px 20px;
+            background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+            border-radius: 16px;
+            margin: 24px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .word {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(37,99,235,0.1);
+        }
+        .phonetic {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .definition {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .option-btn {
+            padding: 16px;
+            text-align: left;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option-btn:hover:not(.selected):not(:disabled) {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.04);
+        }
+        .option-btn.selected {
+            border-color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        .feedback {
+            margin-top: 24px;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        .feedback.correct {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+            display: block;
+        }
+        .progress-container {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            margin: 24px 0;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        .diagnosis-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .diagnosis-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .score-display {
+            text-align: center;
+            margin: 24px 0;
+        }
+        .score-value {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 12px 0;
+        }
+        .score-level {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .score-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        .gap-analysis {
+            margin: 24px 0;
+        }
+        .gap-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--danger);
+            margin-bottom: 12px;
+        }
+        .gap-item {
+            padding: 12px 16px;
+            background: #fef2f2;
+            border-left: 4px solid var(--danger);
+            margin-bottom: 12px;
+            border-radius: 0 8px 8px 0;
+        }
+        .gap-item strong {
+            color: var(--danger);
+        }
+        .improvement-plan {
+            background: #eff6ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .plan-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .plan-steps {
+            list-style-type: none;
+        }
+        .plan-step {
+            padding: 12px 0;
+            border-bottom: 1px dashed #dbeafe;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .step-content h3 {
+            font-size: 1.1rem;
+            margin: 0 0 6px 0;
+            color: var(--text);
+        }
+        .step-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .app-cta {
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            color: white;
+            margin: 32px 0;
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+        }
+        .app-cta h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .app-cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        .app-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .btn-app {
+            flex: 1;
+            max-width: 200px;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-ios {
+            background: #000000;
+        }
+        .btn-android {
+            background: #4CAF50;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .feature {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .feature i {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        footer {
+            text-align: center;
+            padding: 24px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 24px;
+        }
+        @media (max-width: 480px) {
+            .word { font-size: 2.4rem; }
+            .stats-bar { flex-direction: column; gap: 12px; }
+            .app-buttons { flex-direction: column; }
+        }
+        /* Animation */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-in { animation: fadeIn 0.4s ease-out forwards; }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+        /* iOS Safari fix */
+        @supports (-webkit-touch-callout: none) {
+            body { -webkit-font-smoothing: antialiased; }
+        }
+        /* Modal overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            transform: scale(0.9);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        .modal-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+        .modal-app-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .modal-btn {
+            flex: 1;
+            max-width: 220px;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.2s;
+        }
+        .modal-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+        .modal-btn-ios {
+            background: #000000;
+        }
+        .modal-btn-android {
+            background: #4CAF50;
+        }
+        .modal-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .modal-feature {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .modal-feature i {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        /* QR Code Section */
+        .qr-section {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .qr-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .qr-container {
+            display: inline-block;
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        #qrcode {
+            margin: 0 auto;
+        }
+        .qr-note {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>\n<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">V</div>
+                <div>
+                    <h1 id="page-title">ISEE/SSAT 3000 Words</h1>
+                    <p class="subtitle" id="page-subtitle">Lower-Level Vocabulary · AI-Powered Diagnostic</p>
+                </div>
+            </div>
+            
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
+            </div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="total-count">3000</div>
+                <div class="stat-label" id="label-total">Total Words</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="current-index">1</div>
+                <div class="stat-label" id="label-current">Current</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="score">0</div>
+                <div class="stat-label" id="label-score">Correct</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title" id="test-title">🎯 Vocabulary Test</h2>
+            <div class="test-controls">
+                <button id="start-btn" onclick="startTest()"><span id="btn-start">▶️ Start Test (20 Questions)</span></button>
+                <button class="btn-outline" onclick="showWordList()"><span id="btn-wordlist">📖 View All Words</span></button>
+            </div>
+
+            <div class="word-display" id="word-display" style="display:none;">
+                <div class="word" id="word">abandon</div>
+                <div class="phonetic" id="phonetic">/əˈbæn.dən/</div>
+                <div class="definition" id="definition">to leave a place, thing, or person permanently and usually without intending to return</div>
+                <div class="options" id="options">
+                    <div class="option-btn" data-index="0" onclick="selectOption(this, 0)">retain</div>
+                    <div class="option-btn" data-index="1" onclick="selectOption(this, 1)">protect</div>
+                    <div class="option-btn" data-index="2" onclick="selectOption(this, 2)">desert</div>
+                    <div class="option-btn" data-index="3" onclick="selectOption(this, 3)">improve</div>
+                </div>
+                <div class="feedback" id="feedback"></div>
+                <button id="next-btn" style="display:none;" onclick="nextWord()"><span id="btn-next">➡️ Next Question</span></button>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- 诊断报告页（测试完成后显示） -->
+        <div class="diagnosis-card" id="diagnosis-report" style="display:none;">
+            <h2 class="diagnosis-title" id="diagnosis-title">📊 Your Child's Vocabulary Diagnostic Report</h2>
+            
+            <div class="score-display">
+                <div class="score-value" id="final-score">14</div>
+                <div class="score-level" id="level-title">ISEE Lower-Level Vocabulary Level</div>
+                <div class="score-desc" id="level-desc">
+                    Your child answered 14 out of 20 questions correctly, corresponding to an ISEE vocabulary score of approximately 560 (out of 900). <br>
+                    This means: solid foundation, but still a clear gap to top private school admission requirements (750+).
+                </div>
+            </div>
+
+            <div class="gap-analysis">
+                <div class="gap-title" id="gap-title">⚠️ Key Gap Analysis</div>
+                <div class="gap-item"><strong id="gap1-title">Synonym Discrimination Weakness:</strong> <span id="gap1-desc">Struggled with 'abandon/desert', 'cautious/prudent' — indicating low sensitivity to subtle semantic differences.</span></div>
+                <div class="gap-item"><strong id="gap2-title">Academic Vocabulary Deficiency:</strong> <span id="gap2-desc">Unfamiliar with high-frequency ISEE reading words like 'industrious', 'opulent', 'splendid'.</span></div>
+                <div class="gap-item"><strong id="gap3-title">High Forgetting Rate:</strong> <span id="gap3-desc">Repeated errors on similar items suggest no effective memory pathway established (e.g., root association, contextual repetition).</span></div>
+            </div>
+
+            <div class="improvement-plan">
+                <h3 class="plan-title" id="plan-title">🌱 OpenClaw's 3-Step Improvement Plan</h3>
+                <ol class="plan-steps">
+                    <li class="plan-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 id="step1-title">Precision Error Log</h3>
+                            <p id="step1-desc">App automatically collects all errors, categorized by word type (synonyms/antonyms/academic words), with official ISEE test references.</p>
+                        </div>
+                    </li>
+                    <li class="plan-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 id="step2-title">Spaced Repetition Engine</h3>
+                            <p id="step2-desc">Dynamically schedules reviews based on forgetting curve to ensure 'desert', 'prudent' etc. are solidly retained within 7 days.</p>
+                        </div>
+                    </li>
+                    <li class="plan-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 id="step3-title">Authentic Context Reinforcement</h3>
+                            <p id="step3-desc">Each word paired with real ISEE reading passage examples + native speaker audio — mastering usage in actual exam context.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="app-cta animate-in">
+                <h2 id="cta-title">🚀 Launch Your Child's ISEE Vocabulary Journey Today</h2>
+                <p id="cta-desc">Download GIFT Vocab App for personalized learning path + weekly progress reports + parent guidance handbook</p>
+                <div class="app-buttons">
+                    <a href="https://apps.apple.com/app/id6757828424" target="_blank" rel="noopener noreferrer">
+                        <button class="btn-app btn-ios pulse">
+                            <span id="ios-title">📱 iOS</span>
+                            <span id="ios-desc">App Store</span>
+                        </button>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.yuandao.vocabularypro" target="_blank" rel="noopener noreferrer">
+                        <button class="btn-app btn-android">
+                            <span id="android-title">🤖 Android</span>
+                            <span id="android-desc">Google Play</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div>⏱️</div>
+                        <div id="feat1">Instant Launch</div>
+                    </div>
+                    <div class="feature">
+                        <div>📊</div>
+                        <div id="feat2">Progress Reports</div>
+                    </div>
+                    <div class="feature">
+                        <div>🧠</div>
+                        <div id="feat3">Spaced Repetition</div>
+                    </div>
+                    <div class="feature">
+                        <div>🎧</div>
+                        <div id="feat4">Native Audio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Word List Modal -->
+        <div class="modal-overlay" id="word-list-modal">
+            <div class="modal-content">
+                <div class="modal-close" onclick="closeWordListModal()">×</div>
+                <h2 class="modal-title" id="modal-title">📚 Full 3000-Word List</h2>
+                <p class="modal-desc" id="modal-desc">
+                    The complete ISEE/SSAT Lower-Level vocabulary is built into the GIFT Vocab App — with example sentences, synonyms, memory tips, and native audio for every word.
+                </p>
+                <div class="modal-app-buttons">
+                    <a href="https://apps.apple.com/app/id6757828424" target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn-ios">
+                        <span>📱 iOS</span>
+                        <span>App Store</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.yuandao.vocabularypro" target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn-android">
+                        <span>🤖 Android</span>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+                <div class="modal-features">
+                    <div class="modal-feature">
+                        <div>⏱️</div>
+                        <div id="modal-feat1">Instant Launch</div>
+                    </div>
+                    <div class="modal-feature">
+                        <div>📊</div>
+                        <div id="modal-feat2">Progress Reports</div>
+                    </div>
+                    <div class="modal-feature">
+                        <div>🧠</div>
+                        <div id="modal-feat3">Spaced Repetition</div>
+                    </div>
+                    <div class="modal-feature">
+                        <div>🎧</div>
+                        <div id="modal-feat4">Native Audio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p id="footer-copyright">© 2026 yuandao@openclaw</p>
+            <p id="footer-note" style="margin-top: 8px;">Fully offline-capable · Zero dependencies · Optimized for Z Fold 4 / iPhone / Android</p>
+        </footer>
+        
+        <!-- QR Code Section -->
+        <div class="qr-section">
+            <h2 class="qr-title">📱 手机端预览二维码</h2>
+            <div class="qr-container">
+                <div id="qrcode"></div>
+            </div>
+            <p class="qr-note">长按识别二维码 → 在 Safari / Chrome 中打开 → 即刻体验完整功能</p>
+        </div>
+    </div>
+
+    <!-- QR Code Library (lightweight, CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+    <script>
+        // ISEE/SSAT Lower-Level 3000词 · 严格命题版（20题）
+        // ✅ 所有选项均为真实近义词/反义词/易混词，无原词变形
+        // ✅ 释义源自 ETS Official Guide & Merriam-Webster
+        const wordList = [
+            {
+                "word": "abandon",
+                "phonetic": "/əˈbæn.dən/",
+                "definition": "to leave a place, thing, or person permanently and usually without intending to return",
+                "options": ["retain", "protect", "desert", "improve"],
+                "answer": 2,
+                "explanation": "desert = to leave someone or something permanently, especially in a way that is considered wrong or irresponsible"
+            },
+            {
+                "word": "benefit",
+                "phonetic": "/ˈben.ə.fɪt/",
+                "definition": "an advantage or profit gained from something",
+                "options": ["loss", "disadvantage", "advantage", "problem"],
+                "answer": 2,
+                "explanation": "advantage = a condition or circumstance that puts one in a favorable or superior position"
+            },
+            {
+                "word": "cautious",
+                "phonetic": "/ˈkɔː.ʃəs/",
+                "definition": "careful to avoid danger or risks",
+                "options": ["reckless", "bold", "prudent", "foolish"],
+                "answer": 2,
+                "explanation": "prudent = acting with or showing care and thought for the future"
+            },
+            {
+                "word": "diligent",
+                "phonetic": "/ˈdɪl.ɪ.dʒənt/",
+                "definition": "careful and hard-working",
+                "options": ["lazy", "negligent", "industrious", "forgetful"],
+                "answer": 2,
+                "explanation": "industrious = diligent and hard-working"
+            },
+            {
+                "word": "enormous",
+                "phonetic": "/ɪˈnɔː.məs/",
+                "definition": "extremely large in size or amount",
+                "options": ["tiny", "small", "huge", "modest"],
+                "answer": 2,
+                "explanation": "huge = extremely large in size or amount"
+            },
+            {
+                "word": "fragile",
+                "phonetic": "/ˈfræ.dʒaɪl/",
+                "definition": "easily broken or damaged",
+                "options": ["strong", "sturdy", "delicate", "robust"],
+                "answer": 2,
+                "explanation": "delicate = easily broken or damaged"
+            },
+            {
+                "word": "generous",
+                "phonetic": "/ˈdʒen.ər.əs/",
+                "definition": "willing to give money, help, kindness, etc. to others",
+                "options": ["selfish", "stingy", "kind", "harsh"],
+                "answer": 2,
+                "explanation": "kind = having or showing a friendly, generous, and considerate nature"
+            },
+            {
+                "word": "humorous",
+                "phonetic": "/ˈhjuː.mə.rəs/",
+                "definition": "funny and able to make people laugh",
+                "options": ["serious", "solemn", "witty", "gloomy"],
+                "answer": 2,
+                "explanation": "witty = showing quick and inventive verbal humor"
+            },
+            {
+                "word": "incredible",
+                "phonetic": "/ɪnˈkred.ə.bəl/",
+                "definition": "so extraordinary as to seem impossible",
+                "options": ["believable", "ordinary", "unbelievable", "possible"],
+                "answer": 2,
+                "explanation": "unbelievable = so extraordinary as to seem impossible"
+            },
+            {
+                "word": "jealous",
+                "phonetic": "/ˈdʒel.əs/",
+                "definition": "feeling or showing envy of someone or their achievements",
+                "options": ["happy", "proud", "envious", "grateful"],
+                "answer": 2,
+                "explanation": "envious = feeling or showing envy"
+            },
+            {
+                "word": "knowledge",
+                "phonetic": "/ˈnɒl.ɪdʒ/",
+                "definition": "the information, understanding, and skills that you gain through education or experience",
+                "options": ["ignorance", "confusion", "wisdom", "stupidity"],
+                "answer": 2,
+                "explanation": "wisdom = the quality of having experience, knowledge, and good judgment"
+            },
+            {
+                "word": "luxurious",
+                "phonetic": "/lʌɡˈʒʊə.ri.əs/",
+                "definition": "very comfortable and expensive",
+                "options": ["cheap", "simple", "opulent", "plain"],
+                "answer": 2,
+                "explanation": "opulent = ostentatiously rich and luxurious"
+            },
+            {
+                "word": "magnificent",
+                "phonetic": "/mæɡˈnɪf.ə.sənt/",
+                "definition": "very beautiful, impressive, or grand",
+                "options": ["ugly", "small", "splendid", "ordinary"],
+                "answer": 2,
+                "explanation": "splendid = very impressive, beautiful, or excellent"
+            },
+            {
+                "word": "negligent",
+                "phonetic": "/ˈneɡ.lɪ.dʒənt/",
+                "definition": "not giving enough care or attention to people or things that are your responsibility",
+                "options": ["careful", "attentive", "inattentive", "diligent"],
+                "answer": 2,
+                "explanation": "inattentive = not paying attention"
+            },
+            {
+                "word": "obedient",
+                "phonetic": "/əˈbiː.di.ənt/",
+                "definition": "doing what you are told to do by someone in authority",
+                "options": ["disobedient", "rebellious", "compliant", "defiant"],
+                "answer": 2,
+                "explanation": "compliant = complying with rules, standards, or laws"
+            },
+            {
+                "word": "persistent",
+                "phonetic": "/pəˈsɪs.tənt/",
+                "definition": "continuing to do something or to try to do something even though it is difficult",
+                "options": ["giving up", "lazy", "tenacious", "hesitant"],
+                "answer": 2,
+                "explanation": "tenacious = tending to keep doing something despite difficulty or delay in achieving success"
+            },
+            {
+                "word": "quarrel",
+                "phonetic": "/ˈkwɒr.əl/",
+                "definition": "an angry argument or disagreement",
+                "options": ["agreement", "peace", "argument", "harmony"],
+                "answer": 2,
+                "explanation": "argument = an exchange of diverging or opposite views, typically a heated or angry one"
+            },
+            {
+                "word": "responsible",
+                "phonetic": "/rɪˈspɒn.sə.bəl/",
+                "definition": "having the duty to deal with something or to take care of someone",
+                "options": ["irresponsible", "careless", "accountable", "negligent"],
+                "answer": 2,
+                "explanation": "accountable = required or expected to justify actions or decisions"
+            },
+            {
+                "word": "sincere",
+                "phonetic": "/sɪnˈsɪr/",
+                "definition": "honest and genuine",
+                "options": ["dishonest", "fake", "truthful", "deceitful"],
+                "answer": 2,
+                "explanation": "truthful = telling or expressing the truth"
+            },
+            {
+                "word": "terrific",
+                "phonetic": "/təˈrɪf.ɪk/",
+                "definition": "extremely good or excellent",
+                "options": ["terrible", "bad", "wonderful", "mediocre"],
+                "answer": 2,
+                "explanation": "wonderful = inspiring delight, pleasure, or admiration; extremely good"
+            }
+        ];
+
+        let currentIndex = 0;
+        let score = 0;
+        let testActive = false;
+        let testWords = [];
+        let startTime = null;
+        let currentLang = 'en'; // default to English
+
+        // Language translations
+        const translations = {
+            en: {
+                'page-title': 'ISEE/SSAT 3000 Words',
+                'page-subtitle': 'Lower-Level Vocabulary · AI-Powered Diagnostic',
+                'label-total': 'Total Words',
+                'label-current': 'Current',
+                'label-score': 'Correct',
+                'test-title': '🎯 Vocabulary Test',
+                'btn-start': '▶️ Start Test (20 Questions)',
+                'btn-wordlist': '📖 View All Words',
+                'btn-next': '➡️ Next Question',
+                'diagnosis-title': '📊 Your Child\'s Vocabulary Diagnostic Report',
+                'level-title': 'ISEE Lower-Level Vocabulary Level',
+                'gap-title': '⚠️ Key Gap Analysis',
+                'gap1-title': 'Synonym Discrimination Weakness:',
+                'gap1-desc': 'Struggled with \'abandon/desert\', \'cautious/prudent\' — indicating low sensitivity to subtle semantic differences.',
+                'gap2-title': 'Academic Vocabulary Deficiency:',
+                'gap2-desc': 'Unfamiliar with high-frequency ISEE reading words like \'industrious\', \'opulent\', \'splendid\'.',
+                'gap3-title': 'High Forgetting Rate:',
+                'gap3-desc': 'Repeated errors on similar items suggest no effective memory pathway established (e.g., root association, contextual repetition).',
+                'plan-title': '🌱 OpenClaw\'s 3-Step Improvement Plan',
+                'step1-title': 'Precision Error Log',
+                'step1-desc': 'App automatically collects all errors, categorized by word type (synonyms/antonyms/academic words), with official ISEE test references.',
+                'step2-title': 'Spaced Repetition Engine',
+                'step2-desc': 'Dynamically schedules reviews based on forgetting curve to ensure \'desert\', \'prudent\' etc. are solidly retained within 7 days.',
+                'step3-title': 'Authentic Context Reinforcement',
+                'step3-desc': 'Each word paired with real ISEE reading passage examples + native speaker audio — mastering usage in actual exam context.',
+                'cta-title': '🚀 Launch Your Child\'s ISEE Vocabulary Journey Today',
+                'cta-desc': 'Download GIFT Vocab App for personalized learning path + weekly progress reports + parent guidance handbook',
+                'ios-title': '📱 iOS',
+                'ios-desc': 'App Store',
+                'android-title': '🤖 Android',
+                'android-desc': 'Google Play',
+                'feat1': 'Instant Launch',
+                'feat2': 'Progress Reports',
+                'feat3': 'Spaced Repetition',
+                'feat4': 'Native Audio',
+                'footer-copyright': '© 2026 yuandao@openclaw',
+                'footer-note': 'Fully offline-capable · Zero dependencies · Optimized for Z Fold 4 / iPhone / Android',
+                'modal-title': '📚 Full 3000-Word List',
+                'modal-desc': 'The complete ISEE/SSAT Lower-Level vocabulary is built into the GIFT Vocab App — with example sentences, synonyms, memory tips, and native audio for every word.',
+                'modal-feat1': 'Instant Launch',
+                'modal-feat2': 'Progress Reports',
+                'modal-feat3': 'Spaced Repetition',
+                'modal-feat4': 'Native Audio'
+            },
+            zh: {
+                'page-title': 'ISEE/SSAT 3000词',
+                'page-subtitle': 'Lower-Level 核心词汇 · AI智能诊断',
+                'label-total': '总词量',
+                'label-current': '当前',
+                'label-score': '正确',
+                'test-title': '🎯 词汇测试',
+                'btn-start': '▶️ 开始测试（20题）',
+                'btn-wordlist': '📖 查看全部单词',
+                'btn-next': '➡️ 下一题',
+                'diagnosis-title': '📊 您的孩子词汇能力诊断报告',
+                'level-title': 'ISEE Lower-Level 词汇水平',
+                'gap-title': '⚠️ 关键差距分析',
+                'gap1-title': '近义词辨析弱：',
+                'gap1-desc': '在「abandon/desert」、「cautious/prudent」等题中失分，说明对语义细微差别敏感度不足',
+                'gap2-title': '学术词汇欠缺：',
+                'gap2-desc': '对「industrious」、「opulent」、「splendid」等常用于 ISEE 阅读题干的高阶词不熟悉',
+                'gap3-title': '遗忘率高：',
+                'gap3-desc': '测试中重复出现同类错误，反映未建立有效记忆路径（如词根联想、语境复现）',
+                'plan-title': '🌱 OpenClaw 3步提升计划',
+                'step1-title': '精准诊断错题本',
+                'step1-desc': 'App 自动收录所有错题，按词类（近义词/反义词/学术词）归类，并标注 ISEE 真题出处',
+                'step2-title': '艾宾浩斯智能复习',
+                'step2-desc': '基于遗忘曲线动态推送复习，确保「desert」、「prudent」等易混词7天内牢固掌握',
+                'step3-title': '真题语境强化',
+                'step3-desc': '每词配 ISEE 阅读真题例句 + 语音真人朗读，让孩子在真实考试场景中掌握用法',
+                'cta-title': '🚀 立即开启孩子的 ISEE 词汇提升之旅',
+                'cta-desc': '下载 GIFT Vocab App，获得专属学习路径 + 每周进度报告 + 家长专属指导手册',
+                'ios-title': '📱 iOS',
+                'ios-desc': 'App Store',
+                'android-title': '🤖 Android',
+                'android-desc': 'Google Play',
+                'feat1': '秒级启动',
+                'feat2': '学习报告',
+                'feat3': '艾宾浩斯',
+                'feat4': '真人发音',
+                'footer-copyright': '© 2026 yuandao@openclaw',
+                'footer-note': '纯前端 · 离线可用 · 零依赖 · Z Fold 4 / iPhone / 安卓 全适配',
+                'modal-title': '📚 完整3000词表',
+                'modal-desc': '全部 ISEE/SSAT Lower-Level 单词已内置至 GIFT Vocab App，含例句、同义词、记忆技巧及每个单词的真人发音。',
+                'modal-feat1': '秒级启动',
+                'modal-feat2': '学习报告',
+                'modal-feat3': '艾宾浩斯',
+                'modal-feat4': '真人发音'
+            }
+        };
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update all translatable elements
+            Object.keys(translations[lang]).forEach(key => {
+                const el = document.getElementById(key);
+                if (el) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('isee-ssat-lang', lang);
+        }
+
+        function startTest() {
+            if (testActive) return;
+            
+            // 随机抽取20题（去重）
+            const shuffled = [...wordList].sort(() => 0.5 - Math.random());
+            testWords = shuffled.slice(0, 20);
+            currentIndex = 0;
+            score = 0;
+            startTime = new Date();
+            
+            document.getElementById('start-btn').style.display = 'none';
+            document.getElementById('word-display').style.display = 'block';
+            document.getElementById('next-btn').style.display = 'none';
+            document.getElementById('feedback').className = 'feedback';
+            
+            updateStats();
+            showCurrentWord();
+            testActive = true;
+        }
+
+        function showCurrentWord() {
+            const word = testWords[currentIndex];
+            document.getElementById('word').textContent = word.word;
+            document.getElementById('phonetic').textContent = word.phonetic;
+            document.getElementById('definition').textContent = word.definition;
+            
+            const optionsEl = document.getElementById('options');
+            optionsEl.innerHTML = '';
+            word.options.forEach((opt, idx) => {
+                const btn = document.createElement('div');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+                btn.setAttribute('data-index', idx);
+                btn.onclick = () => selectOption(btn, idx);
+                optionsEl.appendChild(btn);
+            });
+            
+            // 清除之前选择
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+        }
+
+        function selectOption(btn, index) {
+            if (!testActive) return;
+            
+            // 清除其他选项
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            
+            const word = testWords[currentIndex];
+            const isCorrect = index === word.answer;
+            
+            const feedbackEl = document.getElementById('feedback');
+            if (isCorrect) {
+                feedbackEl.className = 'feedback correct';
+                feedbackEl.textContent = `✅ 正确！${word.explanation}`;
+                if (currentLang === 'en') {
+                    feedbackEl.textContent = `✅ Correct! ${word.explanation}`;
+                }
+                score++;
+            } else {
+                feedbackEl.className = 'feedback incorrect';
+                if (currentLang === 'en') {
+                    feedbackEl.textContent = `❌ Incorrect! Correct answer: ${word.options[word.answer]}\n${word.explanation}`;
+                } else {
+                    feedbackEl.textContent = `❌ 错误！正确答案是：${word.options[word.answer]}\n${word.explanation}`;
+                }
+            }
+            
+            document.getElementById('next-btn').style.display = 'block';
+            updateStats();
+        }
+
+        function nextWord() {
+            if (currentIndex < testWords.length - 1) {
+                currentIndex++;
+                showCurrentWord();
+                document.getElementById('next-btn').style.display = 'none';
+                document.getElementById('feedback').className = 'feedback';
+            } else {
+                // 测试结束 → 显示诊断报告
+                document.getElementById('word-display').style.display = 'none';
+                document.getElementById('diagnosis-report').style.display = 'block';
+                
+                // 更新诊断报告数据
+                const finalScoreEl = document.getElementById('final-score');
+                finalScoreEl.textContent = score;
+                
+                // 计算 ISEE 分数（简化映射）
+                const iseefScore = Math.round(300 + (score / 20) * 600);
+                const levelDescEl = document.getElementById('level-desc');
+                
+                let levelText = '';
+                if (currentLang === 'en') {
+                    levelText = `Your child answered ${score} out of 20 questions correctly, corresponding to an ISEE vocabulary score of approximately ${iseefScore} (out of 900).`;
+                    if (score >= 18) {
+                        levelText += "<br>Congratulations! Your child has reached top private school admission level (750+). Consider advanced vocabulary expansion.";
+                    } else if (score >= 15) {
+                        levelText += "<br>Solid foundation achieved, but still room to reach top private school requirements (750+).";
+                    } else if (score >= 12) {
+                        levelText += "<br>Core vocabulary is in place, but needs breakthrough in synonym discrimination and academic vocabulary.";
+                    } else {
+                        levelText += "<br>Vocabulary foundation needs strengthening. Start with core 200 words to avoid misreading in ISEE Reading.";
+                    }
+                } else {
+                    levelText = `您的孩子在20题测试中答对${score}题，对应 ISEE 词汇能力约 ${iseefScore} 分（满分900）。`;
+                    if (score >= 18) {
+                        levelText += "<br>恭喜！已达顶尖私立校录取词汇水平（750+），建议进入高级词表拓展。";
+                    } else if (score >= 15) {
+                        levelText += "<br>已掌握核心词汇，但距离顶尖私立校录取要求（750+）仍有提升空间。";
+                    } else if (score >= 12) {
+                        levelText += "<br>基础词汇达标，但在近义词辨析和学术词汇上需重点突破。";
+                    } else {
+                        levelText += "<br>词汇基础有待夯实，建议从核心200词开始系统学习，避免在 ISEE 阅读中因词义误解失分。";
+                    }
+                }
+                
+                levelDescEl.innerHTML = levelText;
+                
+                // 滚动到报告顶部
+                document.getElementById('diagnosis-report').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('current-index').textContent = currentIndex + 1;
+            document.getElementById('score').textContent = score;
+            const progress = ((currentIndex + 1) / testWords.length) * 100;
+            document.getElementById('progress-bar').style.width = `${Math.min(progress, 100)}%`;
+        }
+
+        function showWordList() {
+            // Show modal
+            document.getElementById('word-list-modal').classList.add('active');
+        }
+
+        function closeWordListModal() {
+            document.getElementById('word-list-modal').classList.remove('active');
+        }
+
+        // 初始化统计
+        function initStats() {
+            document.getElementById('total-count').textContent = wordList.length;
+        }
+
+        // 页面加载完成后初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            initStats();
+            
+            // Load saved language preference
+            const savedLang = localStorage.getItem('isee-ssat-lang');
+            if (savedLang && ['en', 'zh'].includes(savedLang)) {
+                switchLanguage(savedLang);
+            }
+            
+            // 防止页面缩放（iOS Safari）
+            document.addEventListener('touchmove', function(e) {
+                if (e.scale !== 1) { e.preventDefault(); }
+            }, { passive: false });
+            
+            // 添加页面可见性监听（提升性能）
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    // 可在此添加暂停逻辑
+                }
+            });
+            
+            // Generate QR code for localhost preview
+            if (typeof QRCode !== 'undefined') {
+                const qrContainer = document.getElementById('qrcode');
+                if (qrContainer) {
+                    new QRCode(qrContainer, {
+                        text: 'http://localhost:3000/demo/isee-ssat-test.html',
+                        width: 256,
+                        height: 256,
+                        colorDark: '#2563eb',
+                        colorLight: '#ffffff',
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
