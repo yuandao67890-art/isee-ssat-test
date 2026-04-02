@@ -590,14 +590,26 @@ html { scroll-behavior: smooth; }
   }
 }
 
-/* 首页分享按钮网格布局：手机竖屏统一 3列×2行（含 iPhone/三星/安卓） */
+/* 首页分享按钮网格布局：精简为 4按钮，2列×2行（全设备统一） */
 .app-buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   justify-content: center;
   max-width: 500px;
   margin: 0 auto;
+  width: 100%;
+}
+
+/* 词表模态框内分享按钮：已移除，此规则可安全忽略（保留以防未来扩展） */
+#word-list-modal .app-buttons {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
 }
 
 /* 按钮基础尺寸保障 */
@@ -645,13 +657,11 @@ html { scroll-behavior: smooth; }
                 <button class="btn-outline" onclick="showWordList()"><span id="btn-wordlist">📖 View All Words</span></button>
             </div>
 
-            <div class="app-buttons">
+            <div class="app-buttons" id="home-share">
                 <button class="home-share-btn btn-ios" onclick="shareTo('whatsapp')">💬 WhatsApp</button>
                 <button class="home-share-btn btn-android" onclick="shareTo('facebook')">📘 Facebook</button>
                 <button class="home-share-btn btn-ios" onclick="shareTo('wechat')">🪷 WeChat</button>
                 <button class="home-share-btn btn-ios" onclick="shareTo('telegram')">✈️ Telegram</button>
-                <button class="home-share-btn btn-android" onclick="shareTo('email')">✉️ Email</button>
-                <button class="home-share-btn btn-ios" onclick="shareTo('ios')">📱 iOS Share</button>
             </div>
 
             <div class="word-display" id="word-display" style="display:none;">
