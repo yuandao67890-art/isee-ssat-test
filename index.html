@@ -590,17 +590,19 @@ html { scroll-behavior: smooth; }
   }
 }
 
-/* 首页分享按钮网格布局：桌面端 3列，移动端单列 */
+/* 首页分享按钮网格布局：手机竖屏统一 3列×2行（含 iPhone/三星/安卓） */
 .app-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
 }
-@media (max-width: 480px) {
-  .app-buttons {
-    grid-template-columns: 1fr;
-  }
+
+/* 按钮基础尺寸保障 */
+.home-share-btn {
+  min-width: 140px;
 }
     </style>
 </head>
