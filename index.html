@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<!DOCTYPE html>\n<html lang="zh-CN">\n<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="ISEE/SSAT Lower-Level 3000核心词汇测试｜AI智能诊断+错题本+App下载加速" />
     <title>ISEE/SSAT 3000词 · 智能测试</title>
+    <!-- Open Graph Tags for Facebook -->
+    <meta property="og:title" content="ISEE/SSAT 3000词 · 智能测试｜AI诊断+App下载" />
+    <meta property="og:description" content="20秒完成词汇摸底，生成招生官看懂的诊断报告｜支持中文/English｜Z Fold 4/iPhone/Android 全适配" />
+    <meta property="og:url" content="https://yuandao67890-art.github.io/isee-ssat-test/" />
+    <meta property="og:image" content="https://yuandao67890-art.github.io/isee-ssat-test/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
     <style>
         :root {
             --primary: #2563eb;
@@ -21,7 +26,7 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             line-height: 1.6;
             color: var(--text);
             background-color: var(--bg);
@@ -32,7 +37,6 @@
         .container {
             max-width: 500px;
             margin: 0 auto;
-            min-height: 100vh;
         }
         header {
             text-align: center;
@@ -536,38 +540,39 @@
             margin-bottom: 8px;
             color: var(--primary);
         }
-        /* ✅ 新增：移动端滚动修复（已验证） */
-        html, body {
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            height: 100%;
+        /* QR Code Section */
+        .qr-section {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
         }
-        .container, .card, .diagnosis-card, .qr-section {
-            overflow-y: visible;
+        .qr-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
         }
-        .container {
-            min-height: 100vh;
+        .qr-container {
+            display: inline-block;
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         }
-        #word-display, #diagnosis-report, .modal-overlay, .qr-section {
-            overflow: visible !important;
+        #qrcode {
+            margin: 0 auto;
         }
-/* ✅ 三星/Android 滚动终极修复 */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-body {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-/* 防止 overscroll bounce（三星/Chrome 关键） */
-* {
-  overscroll-behavior: contain;
-}
+        .qr-note {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
     </style>
-</head>
-<body>
+</head>\n<body>
     <div class="container">
         <header>
             <div class="logo">
@@ -752,9 +757,20 @@ body {
         <footer>
             <p id="footer-copyright">© 2026 yuandao@openclaw</p>
             <p id="footer-note" style="margin-top: 8px;">Fully offline-capable · Zero dependencies · Optimized for Z Fold 4 / iPhone / Android</p>
-    <p id="footer-version">v2026.03.31-2210</p>
         </footer>
+        
+        <!-- QR Code Section -->
+        <div class="qr-section">
+            <h2 class="qr-title">📱 手机端预览二维码</h2>
+            <div class="qr-container">
+                <div id="qrcode"></div>
+            </div>
+            <p class="qr-note">长按识别二维码 → 在 Safari / Chrome 中打开 → 即刻体验完整功能</p>
+        </div>
     </div>
+
+    <!-- QR Code Library (lightweight, CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 
     <script>
         // ISEE/SSAT Lower-Level 3000词 · 严格命题版（20题）
@@ -1189,9 +1205,9 @@ body {
         }
 
         // 初始化统计
-        // function initStats() {
-            // document.getElementById('total-count').textContent = wordList.length;
-        // }
+        function initStats() {
+            document.getElementById('total-count').textContent = wordList.length;
+        }
 
         // 页面加载完成后初始化
         window.addEventListener('DOMContentLoaded', () => {
@@ -1214,8 +1230,22 @@ body {
                     // 可在此添加暂停逻辑
                 }
             });
+            
+            // Generate QR code for localhost preview
+            if (typeof QRCode !== 'undefined') {
+                const qrContainer = document.getElementById('qrcode');
+                if (qrContainer) {
+                    new QRCode(qrContainer, {
+                        text: 'http://localhost:3000/demo/isee-ssat-test.html',
+                        width: 256,
+                        height: 256,
+                        colorDark: '#2563eb',
+                        colorLight: '#ffffff',
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                }
+            }
         });
     </script>
-<script>document.body.addEventListener("touchmove", e => {}, { passive: false });</script>
 </body>
 </html>
