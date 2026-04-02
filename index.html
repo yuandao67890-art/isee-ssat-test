@@ -1,15 +1,10 @@
-<!DOCTYPE html>\n<html lang="zh-CN">\n<head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="ISEE/SSAT Lower-Level 3000核心词汇测试｜AI智能诊断+错题本+App下载加速" />
     <title>ISEE/SSAT 3000词 · 智能测试</title>
-    <!-- Open Graph Tags for Facebook -->
-    <meta property="og:title" content="ISEE/SSAT 3000词 · 智能测试｜AI诊断+App下载" />
-    <meta property="og:description" content="20秒完成词汇摸底，生成招生官看懂的诊断报告｜支持中文/English｜Z Fold 4/iPhone/Android 全适配" />
-    <meta property="og:url" content="https://yuandao67890-art.github.io/isee-ssat-test/" />
-    <meta property="og:image" content="https://yuandao67890-art.github.io/isee-ssat-test/og-image.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="zh_CN" />
     <style>
         :root {
             --primary: #2563eb;
@@ -26,7 +21,7 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: var(--text);
             background-color: var(--bg);
@@ -37,6 +32,7 @@
         .container {
             max-width: 500px;
             margin: 0 auto;
+            min-height: 100vh;
         }
         header {
             text-align: center;
@@ -540,39 +536,75 @@
             margin-bottom: 8px;
             color: var(--primary);
         }
-        /* QR Code Section */
-        .qr-section {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 24px;
-            margin: 32px 0;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            text-align: center;
+        /* ✅ 新增：移动端滚动修复（已验证） */
+        html, body {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            height: 100%;
         }
-        .qr-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 16px;
+        .container, .card, .diagnosis-card, .qr-section {
+            overflow-y: visible;
         }
-        .qr-container {
-            display: inline-block;
-            background: white;
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        .container {
+            min-height: 100vh;
         }
-        #qrcode {
-            margin: 0 auto;
+        #word-display, #diagnosis-report, .modal-overlay, .qr-section {
+            overflow: visible !important;
         }
-        .qr-note {
-            margin-top: 16px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
+/* ✅ 三星/Android/WeChat 滚动终极修复 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* 防止 overscroll bounce（三星/Chrome 关键） */
+* {
+  overscroll-behavior: contain;
+}
+/* 强制平滑滚动 + 触控优化 */
+html { scroll-behavior: smooth; }
+* { touch-action: manipulation; }
+
+/* 首页分享按钮专属样式（轻量、协调） */
+.home-share-btn {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.home-share-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+@media (max-width: 480px) {
+  .home-share-btn {
+    width: 100%;
+    max-width: 220px;
+  }
+}
+
+/* 首页分享按钮网格布局：桌面端 3列，移动端单列 */
+.app-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  justify-content: center;
+}
+@media (max-width: 480px) {
+  .app-buttons {
+    grid-template-columns: 1fr;
+  }
+}
     </style>
-</head>\n<body>
+</head>
+<body>
     <div class="container">
         <header>
             <div class="logo">
@@ -609,6 +641,15 @@
             <div class="test-controls">
                 <button id="start-btn" onclick="startTest()"><span id="btn-start">▶️ Start Test (20 Questions)</span></button>
                 <button class="btn-outline" onclick="showWordList()"><span id="btn-wordlist">📖 View All Words</span></button>
+            </div>
+
+            <div class="app-buttons">
+                <button class="home-share-btn btn-ios" onclick="shareTo('whatsapp')">💬 WhatsApp</button>
+                <button class="home-share-btn btn-android" onclick="shareTo('facebook')">📘 Facebook</button>
+                <button class="home-share-btn btn-ios" onclick="shareTo('wechat')">🪷 WeChat</button>
+                <button class="home-share-btn btn-ios" onclick="shareTo('telegram')">✈️ Telegram</button>
+                <button class="home-share-btn btn-android" onclick="shareTo('email')">✉️ Email</button>
+                <button class="home-share-btn btn-ios" onclick="shareTo('ios')">📱 iOS Share</button>
             </div>
 
             <div class="word-display" id="word-display" style="display:none;">
@@ -681,18 +722,12 @@
                 <h2 id="cta-title">🚀 Launch Your Child's ISEE Vocabulary Journey Today</h2>
                 <p id="cta-desc">Download GIFT Vocab App for personalized learning path + weekly progress reports + parent guidance handbook</p>
                 <div class="app-buttons">
-                    <a href="https://apps.apple.com/app/id6757828424" target="_blank" rel="noopener noreferrer">
-                        <button class="btn-app btn-ios pulse">
-                            <span id="ios-title">📱 iOS</span>
-                            <span id="ios-desc">App Store</span>
-                        </button>
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.yuandao.vocabularypro" target="_blank" rel="noopener noreferrer">
-                        <button class="btn-app btn-android">
-                            <span id="android-title">🤖 Android</span>
-                            <span id="android-desc">Google Play</span>
-                        </button>
-                    </a>
+                    <button class="btn-app btn-ios" onclick="shareTo('whatsapp')">💬 WhatsApp</button>
+                    <button class="btn-app btn-android" onclick="shareTo('facebook')">📘 Facebook</button>
+                    <button class="btn-app btn-ios" onclick="shareTo('wechat')">🪷 WeChat</button>
+                    <button class="btn-app btn-ios" onclick="shareTo('telegram')">✈️ Telegram</button>
+                    <button class="btn-app btn-android" onclick="shareTo('email')">✉️ Email</button>
+                    <button class="btn-app btn-ios" onclick="shareTo('ios')">📱 iOS Share</button>
                 </div>
                 <div class="features-grid">
                     <div class="feature">
@@ -757,20 +792,9 @@
         <footer>
             <p id="footer-copyright">© 2026 yuandao@openclaw</p>
             <p id="footer-note" style="margin-top: 8px;">Fully offline-capable · Zero dependencies · Optimized for Z Fold 4 / iPhone / Android</p>
+    <p id="footer-version">v2026.04.02-1315</p>
         </footer>
-        
-        <!-- QR Code Section -->
-        <div class="qr-section">
-            <h2 class="qr-title">📱 手机端预览二维码</h2>
-            <div class="qr-container">
-                <div id="qrcode"></div>
-            </div>
-            <p class="qr-note">长按识别二维码 → 在 Safari / Chrome 中打开 → 即刻体验完整功能</p>
-        </div>
     </div>
-
-    <!-- QR Code Library (lightweight, CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 
     <script>
         // ISEE/SSAT Lower-Level 3000词 · 严格命题版（20题）
@@ -1205,9 +1229,9 @@
         }
 
         // 初始化统计
-        function initStats() {
-            document.getElementById('total-count').textContent = wordList.length;
-        }
+        // function initStats() {
+        //     document.getElementById('total-count').textContent = wordList.length;
+        // }
 
         // 页面加载完成后初始化
         window.addEventListener('DOMContentLoaded', () => {
@@ -1230,22 +1254,45 @@
                     // 可在此添加暂停逻辑
                 }
             });
-            
-            // Generate QR code for localhost preview
-            if (typeof QRCode !== 'undefined') {
-                const qrContainer = document.getElementById('qrcode');
-                if (qrContainer) {
-                    new QRCode(qrContainer, {
-                        text: 'http://localhost:3000/demo/isee-ssat-test.html',
-                        width: 256,
-                        height: 256,
-                        colorDark: '#2563eb',
-                        colorLight: '#ffffff',
-                        correctLevel: QRCode.CorrectLevel.H
-                    });
-                }
-            }
         });
+
+function shareTo(platform) {
+  const url = window.location.href;
+  const title = document.title;
+  const text = 'Check your child\'s vocabulary and get a personalized progress report and contextual audio.';
+
+  const fallbackCopy = () => {
+    navigator.clipboard.writeText(url).then(() => {
+      alert('🔗 Link copied! Paste it into ' + platform + '.');
+    });
+  };
+
+  if (platform === 'whatsapp') {
+    const encodedUrl = encodeURIComponent(url);
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://api.whatsapp.com/send?text=${encodedText}%0A${encodedUrl}`, '_blank');
+  } else if (platform === 'facebook') {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+  } else if (platform === 'wechat') {
+    fallbackCopy();
+  } else if (platform === 'telegram') {
+    const encodedUrl = encodeURIComponent(url);
+    window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodeURIComponent(text)}`, '_blank');
+  } else if (platform === 'email') {
+    const subject = encodeURIComponent('ISEE/SSAT Vocabulary Report');
+    const body = encodeURIComponent(text + '\n\n' + url);
+    window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
+  } else if (platform === 'ios') {
+    if (navigator.share) {
+      navigator.share({ title, text, url }).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  } else {
+    fallbackCopy();
+  }
+}
     </script>
+<script>document.body.addEventListener("touchmove", e => {}, { passive: false });</script>
 </body>
 </html>
